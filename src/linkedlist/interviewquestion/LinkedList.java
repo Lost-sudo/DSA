@@ -67,7 +67,7 @@ public class LinkedList {
         newLinkedList.insertNode(4);
         newLinkedList.insertNode(3);
         newLinkedList.insertNode(5);
-        newQuestion.deleteDuplicate(newLinkedList); // Remove duplicates
+        newQuestion.deleteDups(newLinkedList); // Remove duplicates
         newLinkedList.traverseLinkedList(); // Print the updated linked list
         System.out.println();
 
@@ -88,7 +88,6 @@ public class LinkedList {
         newLinkedList2.insertNode(7);
         newLinkedList2.insertNode(1);
         newLinkedList2.insertNode(6);
-        newLinkedList2.insertNode(5);
 
         System.out.println("Question 4");
         LinkedList sumList = newQuestion.sumList(newLinkedList, newLinkedList2); // Add the two linked lists
