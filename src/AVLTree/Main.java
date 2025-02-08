@@ -9,5 +9,11 @@ public class Main {
         avl.insert(15);
         avl.insert(20);
         avl.levelOrder();
+        System.out.println();
+        avl.delete(15);
+        avl.levelOrder();
+        System.out.println();
+        avl.search(5);
+        avl.deleteAVLTree();
     }
 }
