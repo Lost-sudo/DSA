@@ -85,49 +85,6 @@ public class AVL {
         root = insertNode(root, value);
     }
 
-
-    // GetHeight Helper Method
-    public int getHeight(BinaryNode node) {
-        if (node == null) {
-            return 0;
-        }
-        return node.height;
-    }
-
-    // Rotate Right Method
-    private BinaryNode rotateRight(BinaryNode disBalanceNode) {
-        BinaryNode newRoot = disBalanceNode.left;
-        BinaryNode temp = newRoot.right;
-        newRoot.right = disBalanceNode;
-        disBalanceNode.left = temp;
-
-        disBalanceNode.height = Math.max(getHeight(disBalanceNode.left), getHeight(disBalanceNode.right)) + 1;
-        newRoot.height = Math.max(getHeight(newRoot.left), getHeight(newRoot.right)) + 1;
-
-        return newRoot;
-    }
-
-    // Rotate Left Method
-    private BinaryNode rotateLeft(BinaryNode disBalanceNode) {
-        BinaryNode newRoot = disBalanceNode.right;
-        BinaryNode temp = newRoot.left;
-        newRoot.left = disBalanceNode;
-        disBalanceNode.right = temp;
-
-        disBalanceNode.height = 1 + Math.max(getHeight(disBalanceNode.left), getHeight(disBalanceNode.right));
-        newRoot.height = 1 + Math.max(getHeight(newRoot.left), getHeight(newRoot.right));
-
-        return newRoot;
-    }
-
-    // Get Balance Method
-    public int getBalance(BinaryNode node) {
-        if (node == null) {
-            return 0;
-        }
-        return getHeight(node.left) - getHeight(node.right);
-    }
-
     // Insert Method Helper
     private BinaryNode insertNode(BinaryNode node, int nodeValue) {
         if (node == null) {
@@ -164,5 +121,47 @@ public class AVL {
         }
 
         return node;
+    }
+
+    // Rotate Right Method
+    private BinaryNode rotateRight(BinaryNode disBalanceNode) {
+        BinaryNode newRoot = disBalanceNode.left;
+        BinaryNode temp = newRoot.right;
+        newRoot.right = disBalanceNode;
+        disBalanceNode.left = temp;
+
+        disBalanceNode.height = Math.max(getHeight(disBalanceNode.left), getHeight(disBalanceNode.right)) + 1;
+        newRoot.height = Math.max(getHeight(newRoot.left), getHeight(newRoot.right)) + 1;
+
+        return newRoot;
+    }
+
+    // Rotate Left Method
+    private BinaryNode rotateLeft(BinaryNode disBalanceNode) {
+        BinaryNode newRoot = disBalanceNode.right;
+        BinaryNode temp = newRoot.left;
+        newRoot.left = disBalanceNode;
+        disBalanceNode.right = temp;
+
+        disBalanceNode.height = 1 + Math.max(getHeight(disBalanceNode.left), getHeight(disBalanceNode.right));
+        newRoot.height = 1 + Math.max(getHeight(newRoot.left), getHeight(newRoot.right));
+
+        return newRoot;
+    }
+
+    // Get Balance Method
+    public int getBalance(BinaryNode node) {
+        if (node == null) {
+            return 0;
+        }
+        return getHeight(node.left) - getHeight(node.right);
+    }
+
+    // GetHeight Helper Method
+    public int getHeight(BinaryNode node) {
+        if (node == null) {
+            return 0;
+        }
+        return node.height;
     }
 }
